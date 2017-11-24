@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://serratus.github.io/quaggaJS/examples/js/quagga.min.js" type="text/javascript"></script>
+    
+    <script type="text/javascript">
+    
+    Quagga.init({
+		inputStream : {
+		  name : "Live",
+		  type : "LiveStream",
+		  target: document.querySelector('#scanblock')
+		},
+		decoder : {
+		  readers : ["code_128_reader"]
+		}
+	  }, function(err) {
+		  if (err) {
+			  console.log(err);
+			  return
+		  }
+		  console.log("Initialization finished. Ready to start");
+		  Quagga.start();
+	  });
+      
+    </script>
+    
+  </head>
+  <body>
+    <header style="text-align: center; margin-top:3%;">
+      <h3>Barcode Scanner</h3>
+      <hr/>
+    </header>
+    <div style="text-align: center; margin-top: 6%;">
+      <div id="scanblock"></div>
+    </div>
+  </body>
+</html>
